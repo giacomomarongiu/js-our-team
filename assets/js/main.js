@@ -32,3 +32,17 @@ const team = [
       image: 'barbara-ramos-graphic-designer.jpg',
     },
   ];
+
+
+  // Milestone 1 - Sfoglio il mio array in un ciclo 
+  for (let i = 0; i < team.length; i++) {
+    //Assegno a ogni iterazione a member il valore dell'indice
+    //Che sarà un oggetto
+    const member = team[i];
+
+    // Verifico la giusta assegnazione
+    //console.log(member); OK
+
+    // Milestone 1 - A ogni iterazione visualizzo nel log nome, ruolo, striga della foto
+    console.log("NOME",member.name,"RUOLO", member.role,"IMG", member.image);
+  }
