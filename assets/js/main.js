@@ -92,21 +92,22 @@ for (let i = 0; i < team.length; i++) {
     row.append(col);
     col.classList.add('col-4');
 
-    //Aggiungo la mia card (Dopo strutturo meglio)
+    //Aggiungo la mia card
     col.append(card);
     card.classList.add('card');
-    card.append(cardBody);
-    cardBody.classList.add('card-body')
 
-    //Verifico che la struttuta sia giusta
     //BONUS 1 Faccio sì che al posto della stringa ci sia un immagine
     card.innerHTML = `<img src="./assets/img/${member.image}" alt="">`
 
-    //BONUS 2 Organizzo il mio DOM in modo tale da poterlo modificare con Bootstrap
-    cardBody.innerHTML = `
-    <h5 class="card-title">Card title</h5>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-    `
 
+    //BONUS 2 Organizzo il mio DOM in modo tale da poterlo modificare con Bootstrap
+    card.append(cardBody);
+    cardBody.classList.add('card-body')
+
+    //Aggiungo elementi alla mia card (Prelevandoli dai miei oggetti)
+    cardBody.innerHTML = `
+    <h5 class="card-title">${member.name}</h5>
+    <p class="card-text">${member.role}</p>
+    <a href="#" class="btn btn-primary">View Profile</a>
+    `
 }
