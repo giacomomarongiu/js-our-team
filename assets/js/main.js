@@ -65,7 +65,7 @@ container.append(row);
 
 //Assegno struttuta Bootstrap aggiungendo classi
 container.classList.add('container');
-row.classList.add('row');
+row.classList.add('row', 'g-3');
 
 
 // Milestone 2 - Nello stesso ciclo di Milestone 1 pubblico anche su DOM
@@ -94,20 +94,20 @@ for (let i = 0; i < team.length; i++) {
 
     //Aggiungo la mia card
     col.append(card);
-    card.classList.add('card');
+    card.classList.add('card', 'h-100', 'position-relative');
 
     //BONUS 1 Faccio sì che al posto della stringa ci sia un immagine
-    card.innerHTML = `<img src="./assets/img/${member.image}" alt="">`
+    card.innerHTML = `<img class="w-100" src="./assets/img/${member.image}" alt=""> `
 
 
     //BONUS 2 Organizzo il mio DOM in modo tale da poterlo modificare con Bootstrap
     card.append(cardBody);
-    cardBody.classList.add('card-body')
+    cardBody.classList.add('card-body', 'd-flex', 'flex-column')
 
     //Aggiungo elementi alla mia card (Prelevandoli dai miei oggetti)
     cardBody.innerHTML = `
     <h5 class="card-title">${member.name}</h5>
     <p class="card-text">${member.role}</p>
-    <a href="#" class="btn btn-primary">View Profile</a>
+    <a href="#" class="btn btn-primary mt-auto">View Profile</a>
     `
 }
