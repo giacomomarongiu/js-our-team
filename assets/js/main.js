@@ -1,5 +1,6 @@
 console.log("Hello World");
 
+//Importo il mio array di oggetti
 const team = [
     {
         name: 'Wayne Barnett',
@@ -34,25 +35,8 @@ const team = [
 ];
 
 
-/*   // Milestone 1 - Sfoglio il mio array in un ciclo 
-  for (let i = 0; i < team.length; i++) {
-    //Assegno a ogni iterazione a member il valore dell'indice
-    //Che sarà un oggetto
-    const member = team[i];
-
-    // Verifico la giusta assegnazione
-    //console.log(member); OK
-
-    // Milestone 1 - A ogni iterazione visualizzo nel log nome, ruolo, striga della foto
-    console.log("NOME",member.name,"RUOLO", member.role,"IMG", member.image);
-
-
-  }
-
- */
-
-// Milestone 2 - Creo un collegamento su DOM (Vari modi)
-// Utilizzo direttamente un div con class card (Mi tornerà utile dopo)
+// Creo un collegamento su DOM (Vari modi)
+// Utilizzo una struttura Bootstrap
 const main = document.createElement('main');
 const container = document.createElement('div');
 const row = document.createElement('div');
@@ -63,48 +47,47 @@ document.body.append(main);
 main.append(container);
 container.append(row);
 
-//Assegno struttuta Bootstrap aggiungendo classi
+//Assegno struttuta Bootstrap aggiungendo classi ai miei elementi sul DOM
 container.classList.add('container');
-row.classList.add('row', 'g-3');
+row.classList.add('row', 'g-3', 'mb-3');
 
 
-// Milestone 2 - Nello stesso ciclo di Milestone 1 pubblico anche su DOM
-
+//Sfoglio il mio array nella sua lunghezza
 for (let i = 0; i < team.length; i++) {
-    //Assegno a ogni iterazione a member il valore dell'indice
-    //Che sarà un oggetto
-    const member = team[i];
 
+    //Dichiaro una variabile member a cui assegno a ogni iterazione il valore dell'indice
+    const member = team[i];
+    //Essendo il mio array pieno di oggetti member sarà un oggetto
     // Verifico la giusta assegnazione
     //console.log(member); OK
 
-    // Milestone 1 - A ogni iterazione visualizzo nel log nome, ruolo, striga della foto
+    //A ogni iterazione visualizzo nel log nome, ruolo, stringa della foto
     console.log("NOME", member.name, "RUOLO", member.role, "IMG", member.image);
 
 
 
-    //Milestone 2
+    //CREO IL RESTO DEGLI ELEMENTI SUL DOM
     const col = document.createElement('div');
     const card = document.createElement('div');
     const cardBody = document.createElement('div');
 
-    //Aggiungo la mia row
+    //Aggiungo a ogni iterazione una colonna
     row.append(col);
     col.classList.add('col-4');
 
-    //Aggiungo la mia card
+    //Aggiungo a ogni iterazione una card
     col.append(card);
-    card.classList.add('card', 'h-100', 'position-relative');
+    card.classList.add('card', 'h-100', 'hovereffect');
 
-    //BONUS 1 Faccio sì che al posto della stringa ci sia un immagine
-    card.innerHTML = `<img class="w-100" src="./assets/img/${member.image}" alt=""> `
+    //Faccio sì che al posto della stringa ci sia un immagine
+    //Inizio a dare struttura alla card Bootstrap
+    card.innerHTML = `<img class="w-100 img-responsive" src="./assets/img/${member.image}" alt=""> `
 
-
-    //BONUS 2 Organizzo il mio DOM in modo tale da poterlo modificare con Bootstrap
+    //Continuo a dare struttura alla card per visualizzare i miei elementi sul DOM
     card.append(cardBody);
     cardBody.classList.add('card-body', 'd-flex', 'flex-column')
 
-    //Aggiungo elementi alla mia card (Prelevandoli dai miei oggetti)
+    //Aggiungo elementi alla mia card (Prelevandone i valori dai miei oggetti)
     cardBody.innerHTML = `
     <h5 class="card-title">${member.name}</h5>
     <p class="card-text">${member.role}</p>
