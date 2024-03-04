@@ -83,7 +83,7 @@ for (let i = 0; i < team.length; i++) {
 
 
 
-    //Milestone 1
+    //Milestone 2
     const col = document.createElement('div');
     const card = document.createElement('div');
 
